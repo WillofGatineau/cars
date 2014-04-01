@@ -1,0 +1,12 @@
+<h1>standard form to register</h1>
+
+<%= form_for @user, url: {action: "create"} do |f| %>
+<p>
+  <%= f.label :username, "username:" %><br>
+  <%= f.text_field :username, length: 30 %>
+</p>
+  <%= f.label :password, "password:" %><br>
+  <%= f.password_field :password, length: 30 %>
+</p>
+<%= f.submit %>
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  username: MyString
+  password: MyString
+  salt: MyString
+  confirmation_code: MyString
+  is_authenticated: false
+
+two:
+  username: MyString
+  password: MyString
+  salt: MyString
+  confirmation_code: MyString
+  is_authenticated: false

@@ -1,4 +1,11 @@
 Cars::Application.routes.draw do
+
+  get "users/index"
+  get "users/new"
+  get "users/update"
+
+  post "users/create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

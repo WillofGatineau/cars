@@ -35,6 +35,9 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+#To hash passwords
+gem 'bcrypt', '~> 3.1.5'
+
 group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
