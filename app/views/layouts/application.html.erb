@@ -10,6 +10,10 @@
 <div id="wrapper">
   <div id="topbar">
     <% if !logged_in? %>
+    <div style="float: left; width: 30%; text-align: left;">
+      <%= link_to("register", "/users/new") %>
+    </div> 
+
     <%= form_tag("/login", method: "post") do %>
       <%= label_tag(:username, "username: ") %>
       <%= text_field_tag(:username) %>

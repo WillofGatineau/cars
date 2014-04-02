@@ -2,8 +2,8 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
   include BCrypt
-  has_one :person
-  
+  has_one :person, dependent: :destroy
+  has_many :vehicles  
   validates :username, uniqueness: true, length: {maximum: 70}, format: {
     with: %r{\A\w+@\w+\.[a-z]{2,4}(\.[a-z]{2,4})?\z}i,
     message: "bad e-mail format."

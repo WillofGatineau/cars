@@ -23,12 +23,20 @@ class Person < ActiveRecord::Base
     message: "invalid format"
   }
 
-  validates :postal_code, presence: true
+  validates :postal_code, format: {
+    with: %r{\A[a-z][0-9][a-z]\s?[0-9][a-z][0-9]\z}i,
+    message: "is not a valid postal code."
+  }  
 
   validates :telephone, format: {
     with: %r{\A(\([0-9]{3}\)|[0-9]{3})[0-9]{3}-?[0-9]{4}\z},
     message: "invalid telephone number."
    }
+  
+  
+   def user_id
+    self.user_id = session[:current_user_id]
+   end 
    
    private
 

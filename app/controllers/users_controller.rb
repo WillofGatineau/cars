@@ -17,10 +17,10 @@ class UsersController < ApplicationController
       puts "test"
       ConfirmationMailer.send_confirmation(@user.id).deliver 
     else
-      #include flash message 
+      render "new"
     end
 
-    render "new"
+      redirect_to("/users/new") 
   end
 
   def authorization

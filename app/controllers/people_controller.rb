@@ -21,6 +21,13 @@ class PeopleController < ApplicationController
   end
 
   def create
+    puts current_user.id 
+    if @person = User.where('id= ?', 1).first.person.create(params[:person])
+      #include success here  
+    else 
+      #this is where failure will be
+    end  
+    redirect_to("/users/index")
   end
 
 end

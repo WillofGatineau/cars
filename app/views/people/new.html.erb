@@ -1,3 +1,4 @@
+<% if logged_in? -%>
 <p>You haven't filled up your personal info yet. In order to continue, please take 2 minutes of your time in fill out the info below</p>
 <%= form_for @person, url: {action: "create"} do |f| %>
 <p>
@@ -29,4 +30,12 @@
   <%= f.text_field :telephone, length: 70 %>
 </p>
 <%= f.submit %>
-<% end %>           
+<% end %>       
+<%if @person.errors.any? %>
+  <ul>
+  <% for message_error in @person.errors.full_messages %>
+   <li><%= message_error %></li>
+  <% end %>
+  </ul>
+<% end %> 
+<% end %>    
