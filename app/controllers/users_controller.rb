@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
+
   def index
-    @users = User.all
+    if logged_in?
+      if !Person.exists?(current_user.id)
+        redirect_to("/people/new")  
+      end  
+    end  
   end
 
   def new
@@ -9,13 +14,24 @@ class UsersController < ApplicationController
 
   def create
     if @user = User.create(params[:user])
-      #insert success here
+      puts "test"
+      ConfirmationMailer.send_confirmation(@user.id).deliver 
     else
-      #insert failure here
+      #include flash message 
     end
+
+    render "new"
   end
 
+  def authorization
+    @user = User.where("confirmation_code = ?", params[:confirmation_code])[0]
+    if !@user.nil?
+      @user.update_attribute(:is_authenticated, 'true')
+      @user.update_attribute(:confirmation_code, '')
+    end  
+  end  
   def update
   end
+
 end
 

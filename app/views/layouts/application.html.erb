@@ -7,8 +7,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="wrapper">
+  <div id="topbar">
+    <% if !logged_in? %>
+    <%= form_tag("/login", method: "post") do %>
+      <%= label_tag(:username, "username: ") %>
+      <%= text_field_tag(:username) %>
+      <%= label_tag(:password, "password: ") %>
+      <%= password_field_tag(:password) %>
+      <%= submit_tag("Login") %> 
+    <% end %>
+    <% else %>
+    <div style="float: left; width: 30%; text-align: left;">
+      
+      <%= link_to("your cars", "/cars/show") %> | 
+      <%= link_to("profile", "/people/show/#{session[:current_user_id]}") %> |
+      <%= link_to("add a car", "/cars/new") %>
+    </div> 
 
-<%= yield %>
-
+    <%= form_tag("/logout", method: "post") do %>
+      <%= submit_tag("logout") %>
+    <% end %>
+    <% end %>
+  </div>
+  <div id="content">  
+    <%= yield %>
+  </div>
+  <div id="footer">
+  </div>
 </body>
 </html>

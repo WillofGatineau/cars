@@ -2,11 +2,26 @@
 
 <%= form_for @user, url: {action: "create"} do |f| %>
 <p>
-  <%= f.label :username, "username:" %><br>
-  <%= f.text_field :username, length: 30 %>
+  <%= f.label :username, "email:" %><br>
+  <%= f.text_field :username, length: 70 %>
+</p>
+<p>
+  <%= f.label :username, "verify email:" %><br>
+  <%= f.text_field :username_confirmation, length: 70 %>
 </p>
   <%= f.label :password, "password:" %><br>
-  <%= f.password_field :password, length: 30 %>
+  <%= f.password_field :password, length: 70 %>
+</p>
+<p>
+  <%= f.label :password, "verify password:" %><br>
+  <%= f.text_field :password_confirmation, length: 70 %>
 </p>
 <%= f.submit %>
 <% end %>
+<%if @user.errors.any? %>
+  <ul>
+  <% for message_error in @user.errors.full_messages %>
+   <li><%= message_error %></li>
+  <% end %>
+  </ul>
+<% end %> 

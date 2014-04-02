@@ -5,3 +5,17 @@
  *= require_self
  *= require_tree . 
 */
+
+#wrapper {
+  width: 75%;
+  margin: 0 auto;
+}
+
+#topbar {
+  width:100%;
+  height: 2em;
+  background-color: red;
+  padding: 0.2em;
+  text-align: right;
+}
+

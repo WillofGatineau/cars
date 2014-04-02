@@ -1,0 +1,32 @@
+<p>You haven't filled up your personal info yet. In order to continue, please take 2 minutes of your time in fill out the info below</p>
+<%= form_for @person, url: {action: "create"} do |f| %>
+<p>
+  <%= f.label :first_name, "first name:" %><br>
+  <%= f.text_field :first_name, length: 70 %>
+</p>
+<p>
+  <%= f.label :last_name, "last name:" %><br>
+  <%= f.text_field :last_name, length: 70 %>
+</p>
+<p>
+  <%= f.label :address, "address:" %><br>
+  <%= f.text_field :address, length: 70 %>
+</p>
+<p>
+  <%= f.label :city, "city:" %><br>
+  <%= f.text_field :city, length: 70 %>
+</p>
+<p>
+  <%= f.label :province, "province:" %><br>
+  <%= f.select :province, @provinces %>
+</p>
+<p>
+  <%= f.label :postal_code, "postal code:" %><br>
+  <%= f.text_field :telephone, length: 70 %>
+</p>
+<p>
+  <%= f.label :telephone, "telephone number:" %><br>
+  <%= f.text_field :telephone, length: 70 %>
+</p>
+<%= f.submit %>
+<% end %>           

@@ -3,8 +3,12 @@ Cars::Application.routes.draw do
   get "users/index"
   get "users/new"
   get "users/update"
-
+  get '/authorization/:confirmation_code', to: 'users#authorization'
+  get "people/new"
   post "users/create"
+  post "people/create"
+  post "/login", to: "logins#create"
+  post "/logout", to: "logins#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -55,7 +59,7 @@ Cars::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'users#new'
 
   # See how all your routes lay out with "rake routes"
 

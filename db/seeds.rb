@@ -9,6 +9,9 @@
 #Seed to add some car brands into the databse. Without some, users wouldn't be able to add a vehicle to their name
 
 Brand.delete_all
+Person.delete_all
+
+Person.create(first_name: "john", last_name: "smith", city: "gatineau", address: "305 despaysans", province: "QC", postal_code: "j9j 2d2", telephone: "8196841213")
 
 Brand.create(make: "Ford", model: "Fiesta")
 Brand.create(make: "Ford", model: "Escort")

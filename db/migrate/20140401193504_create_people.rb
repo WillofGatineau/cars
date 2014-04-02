@@ -8,7 +8,7 @@ class CreatePeople < ActiveRecord::Migration
       t.string :city
       t.string :province
       t.string :postal_code
-      t.string :telepone
+      t.string :telephone
 
       t.timestamps
     end

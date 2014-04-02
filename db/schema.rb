@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140401193504) do
+ActiveRecord::Schema.define(:version => 20140402051919) do
 
   create_table "brands", :id => false, :force => true do |t|
     t.string   "make"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20140401193504) do
     t.string   "city"
     t.string   "province"
     t.string   "postal_code"
-    t.string   "telepone"
+    t.string   "telephone"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20140401193504) do
     t.boolean  "is_authenticated"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_hash"
   end
 
   create_table "vehicles", :force => true do |t|
