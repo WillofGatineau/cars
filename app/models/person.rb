@@ -33,11 +33,6 @@ class Person < ActiveRecord::Base
     message: "invalid telephone number."
    }
   
-  
-   def user_id
-    self.user_id = session[:current_user_id]
-   end 
-   
    private
 
    #because we accept many ways the telephone number can be inputed, we may have to fix that. 
