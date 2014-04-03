@@ -21,8 +21,8 @@ class PeopleController < ApplicationController
   end
 
   def create
-    puts current_user.id 
-    if @person = User.where('id= ?', 1).first.person.create(params[:person])
+    #this line below is generating a nil class error, has something to do with the association.
+    if @person = current_user.person.(params[:person])
       #include success here  
     else 
       #this is where failure will be
